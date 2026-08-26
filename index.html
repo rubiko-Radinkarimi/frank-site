@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#08090d">
+<meta name="description" content="Frank. — Radin Karimi Personal Website">
+<meta name="author" content="Radin Karimi">
+<title>Frank. — Radin Karimi</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#08090d;
+--bg2:#0e1017;
+--card:rgba(255,255,255,.055);
+--border:rgba(255,255,255,.09);
+--text:#fff;
+--muted:#9da3b4;
+--accent:#7c5cff;
+--accent2:#00d4ff;
+--success:#39e58c;
+--shadow:0 25px 80px rgba(0,0,0,.4);
+}
+
+body.light{
+--bg:#f4f6fb;
+--bg2:#fff;
+--card:rgba(0,0,0,.045);
+--border:rgba(0,0,0,.1);
+--text:#11131a;
+--muted:#626978;
+--shadow:0 25px 70px rgba(0,0,0,.1);
+}
+
+body{
+font-family:'Vazirmatn',sans-serif;
+background:
+radial-gradient(circle at 80% 5%,rgba(124,92,255,.2),transparent 28%),
+radial-gradient(circle at 10% 45%,rgba(0,212,255,.08),transparent 25%),
+var(--bg);
+color:var(--text);
+overflow-x:hidden;
+transition:background .4s,color .4s;
+user-select:none;
+-webkit-user-select:none;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.035;
+background-image:
+linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+background-size:45px 45px;
+-webkit-mask-image:linear-gradient(to bottom,black,transparent);
+mask-image:linear-gradient(to bottom,black,transparent);
+z-index:-1;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+button{
+font:inherit;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+padding:17px 5%;
+background:rgba(8,9,13,.55);
+backdrop-filter:blur(22px);
+-webkit-backdrop-filter:blur(22px);
+border-bottom:1px solid var(--border);
+}
+
+body.light header{
+background:rgba(244,246,251,.7);
+}
+
+.nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+font-size:25px;
+font-weight:900;
+letter-spacing:1px;
+}
+
+.logo span{
+color:var(--accent);
+}
+
+.nav-links{
+display:flex;
+gap:26px;
+list-style:none;
+}
+
+.nav-links a{
+color:var(--muted);
+font-size:13px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--text);
+}
+
+.actions{
+display:flex;
+gap:8px;
+}
+
+.icon-btn{
+width:42px;
+height:42px;
+border:1px solid var(--border);
+border-radius:13px;
+background:var(--card);
+color:var(--text);
+cursor:pointer;
+transition:.3s;
+}
+
+.icon-btn:hover{
+transform:translateY(-3px);
+border-color:var(--accent);
+}
+
+.lang{
+position:relative;
+}
+
+.lang-menu{
+position:absolute;
+top:50px;
+right:0;
+width:150px;
+padding:8px;
+border:1px solid var(--border);
+border-radius:15px;
+background:var(--bg2);
+box-shadow:var(--shadow);
+display:none;
+}
+
+.lang-menu.show{
+display:block;
+}
+
+.lang-menu button{
+display:block;
+width:100%;
+border:0;
+background:transparent;
+color:var(--text);
+padding:10px;
+border-radius:9px;
+cursor:pointer;
+text-align:right;
+}
+
+.lang-menu button:hover{
+background:var(--card);
+}
+
+.hero{
+min-height:100vh;
+max-width:1200px;
+margin:auto;
+padding:150px 5% 80px;
+display:grid;
+grid-template-columns:1.15fr .85fr;
+align-items:center;
+gap:60px;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:9px;
+padding:9px 15px;
+border:1px solid var(--border);
+background:var(--card);
+border-radius:999px;
+color:var(--muted);
+font-size:12px;
+margin-bottom:22px;
+}
+
+.dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:var(--success);
+box-shadow:0 0 15px var(--success);
+}
+
+.hero h1{
+font-size:clamp(48px,7vw,84px);
+line-height:1.05;
+letter-spacing:-4px;
+margin-bottom:22px;
+}
+
+.gradient{
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero p{
+max-width:650px;
+color:var(--muted);
+font-size:16px;
+line-height:2.1;
+}
+
+.hero-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.btn{
+padding:13px 22px;
+border-radius:14px;
+border:1px solid var(--border);
+background:var(--card);
+font-size:13px;
+transition:.3s;
+cursor:pointer;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.btn.primary{
+border:0;
+background:linear-gradient(135deg,var(--accent),#5c8dff);
+box-shadow:0 15px 40px rgba(124,92,255,.25);
+}
+
+.profile-wrap{
+display:flex;
+justify-content:center;
+position:relative;
+}
+
+.profile{
+width:340px;
+height:340px;
+border-radius:50%;
+padding:5px;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+box-shadow:0 0 100px rgba(124,92,255,.28);
+animation:float 5s ease-in-out infinite;
+}
+
+.profile-inner{
+width:100%;
+height:100%;
+border-radius:50%;
+background:
+radial-gradient(circle at 35% 25%,#30384e,#10121a 65%);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:100px;
+font-weight:900;
+letter-spacing:-5px;
+overflow:hidden;
+}
+
+.profile-inner img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+display:block;
+pointer-events:none;
+user-select:none;
+-webkit-user-drag:none;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-16px);
+}
+}
+
+section{
+max-width:1200px;
+margin:auto;
+padding:100px 5%;
+}
+
+.section-title{
+margin-bottom:42px;
+}
+
+.section-title small{
+color:var(--accent);
+font-size:12px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.section-title h2{
+font-size:40px;
+margin-top:8px;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:25px;
+padding:30px;
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+box-shadow:var(--shadow);
+transition:.35s;
+}
+
+.card p{
+color:var(--muted);
+line-height:2.1;
+font-size:14px;
+}
+
+.card:hover{
+border-color:rgba(124,92,255,.45);
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.info{
+padding:17px;
+border:1px solid var(--border);
+border-radius:16px;
+background:rgba(255,255,255,.02);
+}
+
+.info span{
+display:block;
+font-size:11px;
+color:var(--muted);
+margin-bottom:5px;
+}
+
+.info strong{
+font-size:13px;
+}
+
+.coding-languages{
+margin-top:20px;
+padding:28px;
+border:1px solid var(--border);
+border-radius:25px;
+background:var(--card);
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+box-shadow:var(--shadow);
+}
+
+.coding-title{
+margin-bottom:20px;
+}
+
+.coding-title small{
+color:var(--accent);
+font-size:11px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.coding-title h3{
+font-size:24px;
+margin-top:7px;
+}
+
+.language-list{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+}
+
+.language-item{
+display:flex;
+align-items:center;
+gap:14px;
+padding:17px;
+border:1px solid var(--border);
+border-radius:18px;
+background:rgba(255,255,255,.025);
+transition:.3s;
+}
+
+.language-item:hover{
+transform:translateY(-6px);
+border-color:var(--accent);
+box-shadow:0 15px 35px rgba(124,92,255,.12);
+}
+
+.language-icon{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:15px;
+font-size:26px;
+background:linear-gradient(
+135deg,
+rgba(124,92,255,.18),
+rgba(0,212,255,.08)
+);
+flex-shrink:0;
+}
+
+.language-item strong{
+display:block;
+font-size:15px;
+}
+
+.language-item span{
+display:block;
+color:var(--muted);
+font-size:10px;
+margin-top:4px;
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.skill{
+text-align:center;
+padding:25px 12px;
+}
+
+.skill:hover{
+transform:translateY(-8px);
+border-color:var(--accent);
+}
+
+.skill-icon{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.skill h3{
+font-size:15px;
+}
+
+.skill p{
+font-size:11px;
+margin-top:5px;
+}
+
+.interests{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.interest{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.interest-icon{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:15px;
+background:linear-gradient(
+135deg,
+rgba(124,92,255,.2),
+rgba(0,212,255,.1)
+);
+font-size:24px;
+flex-shrink:0;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact .card{
+max-width:850px;
+margin:auto;
+padding:55px 30px;
+}
+
+.contact h2{
+font-size:38px;
+margin-bottom:13px;
+}
+
+.contact p{
+color:var(--muted);
+font-size:14px;
+margin-bottom:28px;
+}
+
+.socials{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.social{
+display:flex;
+align-items:center;
+gap:8px;
+padding:12px 17px;
+border:1px solid var(--border);
+border-radius:13px;
+background:var(--card);
+font-size:12px;
+transition:.3s;
+}
+
+.social:hover{
+transform:translateY(-5px);
+border-color:var(--accent);
+}
+
+.email{
+direction:ltr;
+}
+
+footer{
+border-top:1px solid var(--border);
+padding:28px 5%;
+text-align:center;
+color:var(--muted);
+font-size:11px;
+}
+
+.reveal{
+opacity:0;
+transform:translateY(35px);
+transition:1s;
+}
+
+.reveal.show{
+opacity:1;
+transform:none;
+}
+
+#security-message{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%) translateY(100px);
+padding:12px 20px;
+border:1px solid var(--border);
+border-radius:14px;
+background:var(--bg2);
+color:var(--text);
+box-shadow:var(--shadow);
+font-size:12px;
+z-index:9999;
+transition:.4s;
+pointer-events:none;
+white-space:nowrap;
+}
+
+#security-message.show{
+transform:translateX(-50%) translateY(0);
+}
+
+#logo-error{
+display:none;
+width:100%;
+height:100%;
+align-items:center;
+justify-content:center;
+font-size:72px;
+font-weight:900;
+color:var(--text);
+background:
+radial-gradient(circle at 35% 25%,#30384e,#10121a 65%);
+}
+
+@media(max-width:850px){
+
+.nav-links{
+display:none;
+}
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+padding-top:130px;
+}
+
+.hero p{
+margin:auto;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+.profile{
+width:260px;
+height:260px;
+}
+
+.profile-inner{
+font-size:78px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.skills{
+grid-template-columns:repeat(2,1fr);
+}
+
+.interests{
+grid-template-columns:1fr;
+}
+
+.language-list{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:450px){
+
+section{
+padding:75px 5%;
+}
+
+.hero{
+padding-left:5%;
+padding-right:5%;
+}
+
+.hero h1{
+letter-spacing:-2px;
+}
+
+.info-grid{
+grid-template-columns:1fr;
+}
+
+.skills{
+grid-template-columns:1fr 1fr;
+}
+
+.contact h2{
+font-size:29px;
+}
+
+.coding-languages{
+padding:22px;
+}
+
+#security-message{
+max-width:90%;
+white-space:normal;
+text-align:center;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="nav">
+
+<a href="#home" class="logo">
+Frank<span>.</span>
+</a>
+
+<ul class="nav-links">
+
+<li>
+<a href="#home" data-i18n="home">خانه</a>
+</li>
+
+<li>
+<a href="#about" data-i18n="about">درباره من</a>
+</li>
+
+<li>
+<a href="#skills" data-i18n="skills">مهارت‌ها</a>
+</li>
+
+<li>
+<a href="#interests" data-i18n="interests">علایق</a>
+</li>
+
+<li>
+<a href="#contact" data-i18n="contact">ارتباط</a>
+</li>
+
+</ul>
+
+<div class="actions">
+
+<div class="lang">
+
+<button
+type="button"
+class="icon-btn"
+id="langBtn"
+aria-label="Language">
+🌐
+</button>
+
+<div class="lang-menu" id="langMenu">
+
+<button type="button" data-lang="fa">
+🇮🇷 فارسی
+</button>
+
+<button type="button" data-lang="en">
+🇬🇧 English
+</button>
+
+<button type="button" data-lang="ar">
+🇸🇦 العربية
+</button>
+
+<button type="button" data-lang="ru">
+🇷🇺 Русский
+</button>
+
+</div>
+
+</div>
+
+<button
+type="button"
+class="icon-btn"
+id="theme"
+aria-label="Theme">
+☀️
+</button>
+
+</div>
+
+</nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="reveal">
+
+<div class="badge">
+
+<span class="dot"></span>
+
+<span data-i18n="available">
+در حال ساختن چیزهای جدید
+</span>
+
+</div>
+
+<h1>
+
+<span data-i18n="hello">
+سلام، من
+</span>
+
+<br>
+
+<span class="gradient">
+Frank
+</span>
+
+<span data-i18n="am">
+هستم.
+</span>
+
+</h1>
+
+<p data-i18n="heroText">
+برنامه‌نویس، سازنده و علاقه‌مند به تکنولوژی.
+اینجا می‌تونی بیشتر من رو بشناسی.
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="#about"
+class="btn primary"
+data-i18n="knowMe">
+بیشتر با من آشنا شو
+</a>
+
+<a
+href="#contact"
+class="btn"
+data-i18n="contactMe">
+ارتباط با من
+</a>
+
+</div>
+
+</div>
+
+<div class="profile-wrap reveal">
+
+<div class="profile">
+
+<div class="profile-inner">
+
+<img
+id="profileLogo"
+src="./logo.png"
+alt="Frank"
+draggable="false"
+loading="eager"
+decoding="async"
+oncontextmenu="return false">
+
+<div id="logo-error" aria-hidden="true">
+F
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="section-title reveal">
+
+<small>
+ABOUT ME
+</small>
+
+<h2 data-i18n="aboutTitle">
+درباره من
+</h2>
+
+</div>
+
+<div class="about">
+
+<div class="card reveal">
+
+<p data-i18n="aboutText">
+من رادین کریمی هستم؛ علاقه‌مند به برنامه‌نویسی،
+تکنولوژی، طراحی و ساخت چیزهای جدید.
+همیشه در حال یادگیری، تجربه کردن و تبدیل ایده‌ها
+به واقعیت هستم.
+</p>
+
+</div>
+
+<div class="card reveal">
+
+<div class="info-grid">
+
+<div class="info">
+
+<span data-i18n="name">
+نام
+</span>
+
+<strong>
+Radin Karimi
+</strong>
+
+</div>
+
+<div class="info">
+
+<span data-i18n="nickname">
+لقب
+</span>
+
+<strong>
+Frank
+</strong>
+
+</div>
+
+<div class="info">
+
+<span data-i18n="role">
+حوزه فعالیت
+</span>
+
+<strong data-i18n="developer">
+Developer & Creator
+</strong>
+
+</div>
+
+<div class="info">
+
+<span data-i18n="location">
+موقعیت
+</span>
+
+<strong>
+Iran 🇮🇷
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="coding-languages reveal">
+
+<div class="coding-title">
+
+<small data-i18n="languagesLabel">
+PROGRAMMING LANGUAGES
+</small>
+
+<h3 data-i18n="languagesTitle">
+زبان‌های برنامه‌نویسی
+</h3>
+
+</div>
+
+<div class="language-list">
+
+<div class="language-item">
+
+<div class="language-icon">
+🐍
+</div>
+
+<div>
+
+<strong>
+Python
+</strong>
+
+<span data-i18n="pythonText">
+برنامه‌نویسی
+</span>
+
+</div>
+
+</div>
+
+<div class="language-item">
+
+<div class="language-icon">
+☕
+</div>
+
+<div>
+
+<strong>
+Java
+</strong>
+
+<span data-i18n="javaText">
+برنامه‌نویسی
+</span>
+
+</div>
+
+</div>
+
+<div class="language-item">
+
+<div class="language-icon">
+🐘
+</div>
+
+<div>
+
+<strong>
+PHP
+</strong>
+
+<span data-i18n="phpText">
+برنامه‌نویسی
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<div class="section-title reveal">
+
+<small>
+MY SKILLS
+</small>
+
+<h2 data-i18n="skillsTitle">
+مهارت‌ها
+</h2>
+
+</div>
+
+<div class="skills">
+
+<div class="card skill reveal">
+
+<div class="skill-icon">
+🐍
+</div>
+
+<h3>
+Python
+</h3>
+
+<p data-i18n="programming">
+Programming
+</p>
+
+</div>
+
+<div class="card skill reveal">
+
+<div class="skill-icon">
+🌐
+</div>
+
+<h3>
+HTML / CSS
+</h3>
+
+<p data-i18n="web">
+Web Development
+</p>
+
+</div>
+
+<div class="card skill reveal">
+
+<div class="skill-icon">
+⚡
+</div>
+
+<h3>
+JavaScript
+</h3>
+
+<p data-i18n="webApps">
+Web Applications
+</p>
+
+</div>
+
+<div class="card skill reveal">
+
+<div class="skill-icon">
+📱
+</div>
+
+<h3>
+Android
+</h3>
+
+<p data-i18n="appDevelopment">
+App Development
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="interests">
+
+<div class="section-title reveal">
+
+<small>
+INTERESTS
+</small>
+
+<h2 data-i18n="interestsTitle">
+علایق من
+</h2>
+
+</div>
+
+<div class="interests">
+
+<div class="card interest reveal">
+
+<div class="interest-icon">
+🤖
+</div>
+
+<div>
+
+<h3 data-i18n="ai">
+هوش مصنوعی
+</h3>
+
+<p data-i18n="aiText">
+فناوری‌های نوین و AI
+</p>
+
+</div>
+
+</div>
+
+<div class="card interest reveal">
+
+<div class="interest-icon">
+💻
+</div>
+
+<div>
+
+<h3 data-i18n="coding">
+برنامه‌نویسی
+</h3>
+
+<p data-i18n="codingText">
+ساخت و یادگیری
+</p>
+
+</div>
+
+</div>
+
+<div class="card interest reveal">
+
+<div class="interest-icon">
+🚀
+</div>
+
+<div>
+
+<h3 data-i18n="technology">
+تکنولوژی
+</h3>
+
+<p data-i18n="technologyText">
+دنیای فناوری و نوآوری
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<div class="card reveal">
+
+<h2 data-i18n="contactTitle">
+بیایید در ارتباط باشیم 👋
+</h2>
+
+<p data-i18n="contactText">
+برای ارتباط، همکاری یا یک گفت‌وگوی دوستانه
+می‌تونی از راه‌های زیر با من در تماس باشی.
+</p>
+
+<div class="socials">
+
+<a
+class="social"
+href="https://rubika.ir/teFrank"
+target="_blank"
+rel="noopener noreferrer">
+🟣 Rubika
+</a>
+
+<a
+class="social"
+href="https://t.me/teFrank"
+target="_blank"
+rel="noopener noreferrer">
+✈️ Telegram
+</a>
+
+<a
+class="social"
+href="https://github.com/Radin-Karimi"
+target="_blank"
+rel="noopener noreferrer">
+💻 GitHub
+</a>
+
+<a
+class="social email"
+href="mailto:Radin.Karimi.pro@gmail.com">
+✉️ Radin.Karimi.pro@gmail.com
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+©
+<span id="year"></span>
+Frank. — Radin Karimi
+
+</footer>
+
+<div id="security-message"></div>
+
+<script>
+"use strict";
+
+const translations={
+
+fa:{
+home:"خانه",
+about:"درباره من",
+skills:"مهارت‌ها",
+interests:"علایق",
+contact:"ارتباط",
+available:"در حال ساختن چیزهای جدید",
+hello:"سلام، من",
+am:"هستم.",
+heroText:"برنامه‌نویس، سازنده و علاقه‌مند به تکنولوژی. اینجا می‌تونی بیشتر من رو بشناسی.",
+knowMe:"بیشتر با من آشنا شو",
+contactMe:"ارتباط با من",
+aboutTitle:"درباره من",
+aboutText:"من رادین کریمی هستم؛ علاقه‌مند به برنامه‌نویسی، تکنولوژی، طراحی و ساخت چیزهای جدید. همیشه در حال یادگیری، تجربه کردن و تبدیل ایده‌ها به واقعیت هستم.",
+name:"نام",
+nickname:"لقب",
+role:"حوزه فعالیت",
+developer:"Developer & Creator",
+location:"موقعیت",
+languagesLabel:"PROGRAMMING LANGUAGES",
+languagesTitle:"زبان‌های برنامه‌نویسی",
+pythonText:"برنامه‌نویسی",
+javaText:"برنامه‌نویسی",
+phpText:"برنامه‌نویسی",
+skillsTitle:"مهارت‌ها",
+programming:"برنامه‌نویسی",
+web:"توسعه وب",
+webApps:"اپلیکیشن‌های تحت وب",
+appDevelopment:"توسعه اپلیکیشن",
+interestsTitle:"علایق من",
+ai:"هوش مصنوعی",
+aiText:"فناوری‌های نوین و AI",
+coding:"برنامه‌نویسی",
+codingText:"ساخت و یادگیری",
+technology:"تکنولوژی",
+technologyText:"دنیای فناوری و نوآوری",
+contactTitle:"بیایید در ارتباط باشیم 👋",
+contactText:"برای ارتباط، همکاری یا یک گفت‌وگوی دوستانه می‌تونی از راه‌های زیر با من در تماس باشی."
+},
+
+en:{
+home:"Home",
+about:"About Me",
+skills:"Skills",
+interests:"Interests",
+contact:"Contact",
+available:"Creating something new",
+hello:"Hi, I'm",
+am:".",
+heroText:"Developer, creator and technology enthusiast. Get to know me, my journey and the things I enjoy.",
+knowMe:"Get to know me",
+contactMe:"Contact me",
+aboutTitle:"About Me",
+aboutText:"I'm Radin Karimi, passionate about programming, technology, design and building new things. I enjoy learning, experimenting and turning ideas into reality.",
+name:"Name",
+nickname:"Nickname",
+role:"Role",
+developer:"Developer & Creator",
+location:"Location",
+languagesLabel:"PROGRAMMING LANGUAGES",
+languagesTitle:"Programming Languages",
+pythonText:"Programming",
+javaText:"Programming",
+phpText:"Programming",
+skillsTitle:"Skills",
+programming:"Programming",
+web:"Web Development",
+webApps:"Web Applications",
+appDevelopment:"App Development",
+interestsTitle:"My Interests",
+ai:"Artificial Intelligence",
+aiText:"Emerging technologies & AI",
+coding:"Programming",
+codingText:"Building & learning",
+technology:"Technology",
+technologyText:"Innovation & technology",
+contactTitle:"Let's stay connected 👋",
+contactText:"For contact, collaboration or just a friendly conversation, you can reach me through the links below."
+},
+
+ar:{
+home:"الرئيسية",
+about:"عني",
+skills:"المهارات",
+interests:"الاهتمامات",
+contact:"التواصل",
+available:"أبني أشياء جديدة",
+hello:"مرحباً، أنا",
+am:"فرانك.",
+heroText:"مبرمج ومبدع ومهتم بالتكنولوجيا. تعرّف أكثر عليّ وعلى مسيرتي واهتماماتي.",
+knowMe:"تعرّف عليّ",
+contactMe:"تواصل معي",
+aboutTitle:"عني",
+aboutText:"أنا رادين كريمي، شغوف بالبرمجة والتكنولوجيا والتصميم وبناء الأشياء الجديدة. أحب التعلم والتجربة وتحويل الأفكار إلى واقع.",
+name:"الاسم",
+nickname:"اللقب",
+role:"المجال",
+developer:"مطور ومبدع",
+location:"الموقع",
+languagesLabel:"لغات البرمجة",
+languagesTitle:"لغات البرمجة",
+pythonText:"برمجة",
+javaText:"برمجة",
+phpText:"برمجة",
+skillsTitle:"المهارات",
+programming:"البرمجة",
+web:"تطوير الويب",
+webApps:"تطبيقات الويب",
+appDevelopment:"تطوير التطبيقات",
+interestsTitle:"اهتماماتي",
+ai:"الذكاء الاصطناعي",
+aiText:"التقنيات الحديثة والذكاء الاصطناعي",
+coding:"البرمجة",
+codingText:"البناء والتعلم",
+technology:"التكنولوجيا",
+technologyText:"عالم التقنية والابتكار",
+contactTitle:"لنبقَ على تواصل 👋",
+contactText:"للتواصل أو التعاون أو مجرد محادثة ودية، يمكنك الوصول إليّ من خلال الروابط التالية."
+},
+
+ru:{
+home:"Главная",
+about:"Обо мне",
+skills:"Навыки",
+interests:"Интересы",
+contact:"Контакты",
+available:"Создаю что-то новое",
+hello:"Привет, я",
+am:"Фрэнк.",
+heroText:"Разработчик, создатель и энтузиаст технологий. Узнайте больше обо мне, моём пути и интересах.",
+knowMe:"Узнать больше",
+contactMe:"Связаться со мной",
+aboutTitle:"Обо мне",
+aboutText:"Я Радин Карими, увлекаюсь программированием, технологиями, дизайном и созданием новых вещей. Мне нравится учиться, экспериментировать и превращать идеи в реальность.",
+name:"Имя",
+nickname:"Псевдоним",
+role:"Сфера",
+developer:"Разработчик и создатель",
+location:"Местоположение",
+languagesLabel:"ЯЗЫКИ ПРОГРАММИРОВАНИЯ",
+languagesTitle:"Языки программирования",
+pythonText:"Программирование",
+javaText:"Программирование",
+phpText:"Программирование",
+skillsTitle:"Навыки",
+programming:"Программирование",
+web:"Веб-разработка",
+webApps:"Веб-приложения",
+appDevelopment:"Разработка приложений",
+interestsTitle:"Мои интересы",
+ai:"Искусственный интеллект",
+aiText:"Новые технологии и AI",
+coding:"Программирование",
+codingText:"Создание и обучение",
+technology:"Технологии",
+technologyText:"Инновации и технологии",
+contactTitle:"Давайте будем на связи 👋",
+contactText:"Для общения, сотрудничества или просто дружеского разговора вы можете связаться со мной по ссылкам ниже."
+}
+
+};
+
+const allowedLanguages=["fa","en","ar","ru"];
+
+let currentLang=localStorage.getItem("frank-lang")||"fa";
+
+if(!allowedLanguages.includes(currentLang)){
+currentLang="fa";
+localStorage.setItem("frank-lang","fa");
+}
+
+const securityMessage=document.getElementById("security-message");
+const profileLogo=document.getElementById("profileLogo");
+const logoError=document.getElementById("logo-error");
+
+function setLanguage(lang){
+
+if(!allowedLanguages.includes(lang)){
+lang="fa";
+}
+
+currentLang=lang;
+
+localStorage.setItem("frank-lang",lang);
+
+const data=translations[lang];
+
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+
+const key=el.dataset.i18n;
+
+if(Object.prototype.hasOwnProperty.call(data,key)){
+el.textContent=data[key];
+}
+
+});
+
+document.documentElement.lang=lang;
+
+document.documentElement.dir=
+(lang==="fa"||lang==="ar")?"rtl":"ltr";
+
+}
+
+function showSecurityMessage(){
+
+if(!securityMessage){
+return;
+}
+
+securityMessage.textContent=
+currentLang==="en"
+?"This action is disabled."
+:
+currentLang==="ar"
+?"هذا الإجراء معطل."
+:
+currentLang==="ru"
+?"Это действие отключено."
+:
+"این قابلیت توسط فرانک خاموش شده.";
+
+securityMessage.classList.add("show");
+
+clearTimeout(window.securityMessageTimer);
+
+window.securityMessageTimer=setTimeout(()=>{
+
+securityMessage.classList.remove("show");
+
+},1800);
+
+}
+
+setLanguage(currentLang);
+
+const langBtn=document.getElementById("langBtn");
+const langMenu=document.getElementById("langMenu");
+
+if(langBtn&&langMenu){
+
+langBtn.addEventListener("click",event=>{
+
+event.stopPropagation();
+
+langMenu.classList.toggle("show");
+
+});
+
+document.querySelectorAll("[data-lang]").forEach(button=>{
+
+button.addEventListener("click",event=>{
+
+event.stopPropagation();
+
+setLanguage(button.dataset.lang);
+
+langMenu.classList.remove("show");
+
+});
+
+});
+
+document.addEventListener("click",()=>{
+
+langMenu.classList.remove("show");
+
+});
+
+}
+
+const theme=document.getElementById("theme");
+
+let savedTheme=localStorage.getItem("frank-theme");
+
+if(savedTheme!=="light"&&savedTheme!=="dark"){
+savedTheme="dark";
+}
+
+if(savedTheme==="light"){
+
+document.body.classList.add("light");
+
+theme.textContent="🌙";
+
+}else{
+
+theme.textContent="☀️";
+
+}
+
+theme.addEventListener("click",()=>{
+
+document.body.classList.toggle("light");
+
+const isLight=document.body.classList.contains("light");
+
+theme.textContent=isLight?"🌙":"☀️";
+
+localStorage.setItem(
+"frank-theme",
+isLight?"light":"dark"
+);
+
+});
+
+if("IntersectionObserver" in window){
+
+const observer=new IntersectionObserver(
+entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+document.querySelectorAll(".reveal").forEach(el=>{
+
+observer.observe(el);
+
+});
+
+}else{
+
+document.querySelectorAll(".reveal").forEach(el=>{
+
+el.classList.add("show");
+
+});
+
+}
+
+const year=document.getElementById("year");
+
+if(year){
+
+year.textContent=new Date().getFullYear();
+
+}
+
+/*
+LOGO HANDLER
+فایل باید دقیقاً کنار index.html باشد:
+./logo.png
+*/
+
+if(profileLogo){
+
+profileLogo.addEventListener("load",()=>{
+
+profileLogo.style.display="block";
+
+if(logoError){
+logoError.style.display="none";
+}
+
+});
+
+profileLogo.addEventListener("error",()=>{
+
+profileLogo.style.display="none";
+
+if(logoError){
+logoError.style.display="flex";
+}
+
+});
+
+if(profileLogo.complete){
+
+if(profileLogo.naturalWidth>0){
+
+profileLogo.style.display="block";
+
+if(logoError){
+logoError.style.display="none";
+}
+
+}else{
+
+profileLogo.style.display="none";
+
+if(logoError){
+logoError.style.display="flex";
+}
+
+}
+
+}
+
+}
+
+document.addEventListener(
+"contextmenu",
+event=>{
+
+event.preventDefault();
+
+showSecurityMessage();
+
+},
+{
+passive:false
+}
+);
+
+document.addEventListener(
+"selectstart",
+event=>{
+
+event.preventDefault();
+
+},
+{
+passive:false
+}
+);
+
+document.addEventListener(
+"dragstart",
+event=>{
+
+event.preventDefault();
+
+},
+{
+passive:false
+}
+);
+
+document.addEventListener(
+"keydown",
+event=>{
+
+const key=event.key.toLowerCase();
+
+const blocked=
+key==="f12" ||
+(
+event.ctrlKey &&
+event.shiftKey &&
+["i","j","c"].includes(key)
+) ||
+(
+event.ctrlKey &&
+key==="u"
+) ||
+(
+event.ctrlKey &&
+key==="s"
+);
+
+if(blocked){
+
+event.preventDefault();
+
+showSecurityMessage();
+
+}
+
+},
+{
+passive:false
+}
+);
+
+document.addEventListener(
+"copy",
+event=>{
+
+event.preventDefault();
+
+showSecurityMessage();
+
+},
+{
+passive:false
+}
+);
+
+document.addEventListener(
+"cut",
+event=>{
+
+event.preventDefault();
+
+},
+{
+passive:false
+}
+);
+
+document.addEventListener(
+"paste",
+event=>{
+
+event.preventDefault();
+
+},
+{
+passive:false
+}
+);
+
+</script>
+
+</body>
+</html>
